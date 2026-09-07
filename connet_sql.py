@@ -14,7 +14,18 @@ connet = pymysql.connect(
 cursor = connet.cursor()
 
 insrtsql = '''
-insert into videos (aid,tname,title,deses,author,view,reply,favorite,share,coin)  values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+insert into videos (aid, tname, title, deses, author, view, reply, favorite, share, coin)
+values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+ON DUPLICATE KEY UPDATE 
+    tname = VALUES(tname),
+    title = VALUES(title),
+    deses = VALUES(deses),
+    author = VALUES(author),
+    view = VALUES(view),
+    reply = VALUES(reply),
+    favorite = VALUES(favorite),
+    share = VALUES(share),
+    coin = VALUES(coin)
 '''
 
 lit = Bpachong(page = 5)
@@ -25,4 +36,4 @@ for i in lit:
 connet.commit()
 cursor.close()
 connet.close()
-print('插入成功！')
+print('爬取成功！')
