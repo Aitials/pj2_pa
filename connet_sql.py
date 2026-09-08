@@ -28,7 +28,7 @@ ON DUPLICATE KEY UPDATE
     coin = VALUES(coin)
 '''
 
-lit = Bpachong(page = 5)
+lit = Bpachong(page = 25)
 for i in lit:
     data = (i['aid'], i['tname'], i['title'], i['desc'],i['owner']['name'],i['stat']['view'],i['stat']['reply'],i['stat']['favorite'],i['stat']['share'],i['stat']['coin'])
     cursor.execute(insrtsql, data)
