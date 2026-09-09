@@ -41,12 +41,14 @@ data2 = data[['aid']]
 data2['观看量（万）'] = (data['view']/10000).round(2)
 data2['分享'] = data['share']
 data2['评论'] = data['reply']
-data2['点赞（万）'] = (data['favorite']/10000).round(2)
+data2['点赞（万）'] = (data['ulike']/10000).round(2)
+data2['收藏'] = data['favorite']
 data2['类别'] = data['tname']
 data2['标题'] = data['title']
 data2['投币'] = data['coin']
 data2['视频简介'] = data['deses']
 
+
 data2.to_sql('videos_data', con=engine, if_exists='replace', index=False)
 print('汇报表成功写入！')
-#数据计算然后写进汇报表
+#数据计算然后写进汇报表 ，由 pandas 自动建表补全

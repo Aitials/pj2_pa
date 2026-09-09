@@ -11,6 +11,7 @@ create table videos (
     author varchar(50) not null ,
     view int not null ,
     reply int not null ,
+    ulike int not null ,
     favorite int not null ,
     share int not null ,
     coin int not null
@@ -19,7 +20,4 @@ create table videos (
 
 #测试区
 #drop table videos
-#drop table videos_data
 
-
-create table videos_data(aid char(15) primary key not null );

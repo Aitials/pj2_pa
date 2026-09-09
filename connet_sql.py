@@ -13,8 +13,8 @@ connet = pymysql.connect(
 cursor = connet.cursor()
 
 insrtsql = '''
-insert into videos (aid, tname, title, deses, author, view, reply, favorite, share, coin)
-values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+insert into videos (aid, tname, title, deses, author, view, reply, ulike, favorite, share, coin)
+values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
 ON DUPLICATE KEY UPDATE 
     tname = VALUES(tname),
     title = VALUES(title),
@@ -22,6 +22,7 @@ ON DUPLICATE KEY UPDATE
     author = VALUES(author),
     view = VALUES(view),
     reply = VALUES(reply),
+    ulike = VALUES(ulike),
     favorite = VALUES(favorite),
     share = VALUES(share),
     coin = VALUES(coin)
@@ -29,7 +30,7 @@ ON DUPLICATE KEY UPDATE
 
 lit = Bpachong(page = 25)
 for i in lit:
-    data = (i['aid'], i['tname'], i['title'], i['desc'],i['owner']['name'],i['stat']['view'],i['stat']['reply'],i['stat']['favorite'],i['stat']['share'],i['stat']['coin'])
+    data = (i['aid'], i['tname'], i['title'], i['desc'],i['owner']['name'],i['stat']['view'],i['stat']['reply'],i['stat']['like'],i['stat']['favorite'],i['stat']['share'],i['stat']['coin'])
     cursor.execute(insrtsql, data)
 
 connet.commit()

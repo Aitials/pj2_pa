@@ -1,0 +1,13 @@
+[project]
+name = "pj2-pachong"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "ipykernel>=7.3.0",
+    "numpy>=2.5.3",
+    "pandas>=3.0.5",
+    "pandas-stubs~=3.0.5",
+    "pymysql>=1.2.0",
+    "requests>=2.34.2",
+    "sqlalchemy>=2.0.52",
+]
