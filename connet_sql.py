@@ -5,11 +5,10 @@ connet = pymysql.connect(
     host="localhost",
     port=3306,
     user="root",
-    passwd="mysql",
+    password="mysql",
     database="pj2_pachong",
     charset='utf8mb4'
 )
-
 
 cursor = connet.cursor()
 
@@ -36,4 +35,4 @@ for i in lit:
 connet.commit()
 cursor.close()
 connet.close()
-print('爬取成功！')
+print('数据爬取成功！')

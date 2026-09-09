@@ -18,4 +18,8 @@ create table videos (
 );
 
 #测试区
-#drop table videos_biao2
+#drop table videos
+#drop table videos_data
+
+
+create table videos_data(aid char(15) primary key not null );
